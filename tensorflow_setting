@@ -1,0 +1,19 @@
+## for tensorflow
+
+#### for cudnn
+export CUDNN_HOME=local_path2cudnn/cuda     // this path have to 2 dirs (lib64 include)
+
+export LD_LIBRARY_PATH=${CUDNN_HOME}/lib64:$LD_LIBRARY_PATH
+
+export CPLUS_INCLUDE_PATH=${CUDNN_HOME}/include:$CPLUS_INCLUDE_PATH
+
+#### specify a gpu for running tensorflow
+export CUDA_VISIBLE_DEVICES=0,1 ##仅显卡设备0,1GPU可见
+
+        # Create a session for running operations in the Graph.
+        config = tf.ConfigProto()
+        config.gpu_options.allow_growth = True
+        config.gpu_options.per_process_gpu_memory_fraction = 1.0
+        config.allow_soft_placement = True
+        # config.log_device_placement = True
+        session = tf.Session(config=config)
