@@ -7,4 +7,5 @@
 
 ## for anaconda
 not add to .bashrc when installing
+
 export PATH=path2anaconda/bin:${PATH}
