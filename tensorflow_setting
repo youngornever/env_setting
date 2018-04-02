@@ -8,6 +8,7 @@ export LD_LIBRARY_PATH=${CUDNN_HOME}/lib64:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=${CUDNN_HOME}/include:$CPLUS_INCLUDE_PATH
 
 #### specify a gpu for running tensorflow
+CUDA will enumerate the visible devices starting at zero. In the last case, devices 0, 2, 3 will appear as devices 0, 1, 2. If you change the order of the string to “2,3,0”, devices 2,3,0 will be enumerated as 0,1,2 respectively. If CUDA_VISIBLE_DEVICES is set to a device that does not exist, all devices will be masked. You can specify a mix of valid and invalid device numbers. All devices before the invalid value will be enumerated, while all devices after the invalid value will be masked.
         export CUDA_VISIBLE_DEVICES=0,1 ##仅显卡设备0,1GPU可见
 
         # Create a session for running operations in the Graph.
