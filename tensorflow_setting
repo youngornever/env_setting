@@ -8,7 +8,7 @@ export LD_LIBRARY_PATH=${CUDNN_HOME}/lib64:$LD_LIBRARY_PATH
 export CPLUS_INCLUDE_PATH=${CUDNN_HOME}/include:$CPLUS_INCLUDE_PATH
 
 #### specify a gpu for running tensorflow
-export CUDA_VISIBLE_DEVICES=0,1 ##仅显卡设备0,1GPU可见
+        export CUDA_VISIBLE_DEVICES=0,1 ##仅显卡设备0,1GPU可见
 
         # Create a session for running operations in the Graph.
         config = tf.ConfigProto()
