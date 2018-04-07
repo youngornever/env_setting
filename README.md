@@ -5,7 +5,6 @@
 
 2、specify which gpu for running tensorflow
 
-eg.
     CUDA_VISIBLE_DEVICES=0 python tf_demo.py
     CUDA_VISIBLE_DEVICES=1 sh ./run.sh
 
