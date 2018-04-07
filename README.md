@@ -12,4 +12,5 @@ export PATH=path2anaconda/bin:${PATH}
 
 ## for tmux
 every time use shell, please use tmux first.
+
 eg. tmux new -s sess_name_chen
