@@ -1,0 +1,55 @@
+# for tmux
+
+Tmux 是一个工具，用于在一个终端窗口中运行多个终端会话。
+可以通过 Tmux 使终端会话运行于后台或是按需接入、断开会话，这个功能非常实用。
+
+a good reference:
+https://www.cnblogs.com/lizhang4/p/7325086.html
+
+# about setting of tmux
+make a config file, /path2file/.tmux.conf       # default /path2file is ~(home)
+
+# for tmux 
+setw -g mouse-resize-pane on  # allow mouse to change the size of pane
+setw -g mouse-select-pane on
+setw -g mouse-select-window on
+setw -g mode-mouse on
+#开启用鼠标拖动调节pane的大小（拖动位置是pane之间的分隔线）
+#开启用鼠标点击pane来激活该pane
+#开启用鼠标点击来切换活动window（点击位置是状态栏的窗口名称）
+#开启window/pane里面的鼠标支持（也即可以用鼠标滚轮回滚显示窗口内容，此时还可以用鼠标选取文本）
+
+在tmux里面按 C-b :(注意“:”必须有) 执行 source ／path2file/.tmux.conf 即可生效 （也可以直接将这几行放在 C-b : 的输入行去执行，每次执行一行
+
+----------------------------------------------------------------------------------------------------
+# tmux command for use. brief introduction and quick start
+创建／关闭session
+    tmux    # 不推荐， 创建默认的会话，以数字命名
+    tmux new -s sess_name
+
+    tmux kill-session -t sess_name     # 建议在关闭前先查看回话名称
+查看(所有)session名称
+    tmux ls
+
+连接(进入)／断开(退出)session
+    tmux attach -t sess_name
+    tmux a -t sess_name     # 推荐
+
+    tmux detach
+    
+Tmux 的快捷键前缀（Prefix）
+为了使自身的快捷键和其他软件的快捷键互不干扰，Tmux 提供了一个快捷键前缀。当想要使用快捷键时，需要先按下快捷键前缀，然后再按下快捷键。
+Tmux 所使用的快捷键前缀默认是组合键 Ctrl-b（同时按下 Ctrl 键和 b 键）。
+        ctrl+b  
+        
+    # 常用，关于窗口(pane)
+    Ctrl + b 激活控制台后在输入“%”　　将当前面板平分为左右两块；
+    Ctrl + b 激活控制台后在输入“  ” ”　　将当前面板平分为上下两块；
+    Ctrl + b 激活控制台后在输入“o”　　切换窗口；
+    Ctrl + b                方向键， 切换窗口
+    Ctrl + b                 q   , 按照数字提示(输入数字)切换窗口  
+    Ctrl + b                 z      将窗口最大化和还原                        # tmux >= 1.8, 重磅推荐
+    
+    # 关于session
+    Ctrl + b 激活控制台后在输入“s”　　通过窗口切换到其他会话
+    Ctrl + b 激活控制台后在输入“d”　　脱离当前会话；这样可以暂时返回Shell界面，输入“tmux a -t 名称”，能够重新进入之前的会话；
