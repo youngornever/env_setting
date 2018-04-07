@@ -5,6 +5,7 @@ Tmux 是一个工具，用于在一个终端窗口中运行多个终端会话。
 
 a good reference:
 https://www.cnblogs.com/lizhang4/p/7325086.html
+http://blog.jobbole.com/87584/              # recommand
 
 # about setting of tmux
 make a config file, /path2file/.tmux.conf       # default /path2file is ~(home)
