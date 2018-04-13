@@ -10,7 +10,10 @@ http://blog.jobbole.com/87584/              # recommand
 # about setting of tmux
 make a config file, /path2file/.tmux.conf       # default /path2file is ~(home)
 
-# for tmux 
+# for tmux > V2.1
+set-option -g mouse on  # 开启鼠标， 包括切换pane，滑动滚轮等 
+
+# for tmux < version 2
 setw -g mouse-resize-pane on  # allow mouse to change the size of pane
 setw -g mouse-select-pane on
 setw -g mouse-select-window on
