@@ -1,1 +1,23 @@
 
+echo -e "\t \c \n"  #开启转义， \c不换行
+
+shell 按行读取文件    # 见link——https://blog.csdn.net/yf210yf/article/details/9209101
+    #!/bin/bash  
+    echo "##### 方法 1 #####"  
+    while read line1  
+    do  
+        echo $line1  
+    done < $1  
+      
+    echo "##### 方法 2 #####"  
+    cat $1 | while read line2  
+    do  
+        echo $line2  
+    done  
+    
+    IFS=$'\n'  # set this for reading by line
+    echo "##### 方法 3 #####"  
+    for line3 in $(<$1)   # 注意如果有空格，会按字来读取, for line_it in `cat ${file_name}` 
+    do  
+        echo $line3  
+    done  
