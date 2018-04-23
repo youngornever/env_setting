@@ -32,14 +32,16 @@ setw -g mode-mouse on
 在tmux里面按 C-b :(注意“:”必须有) 执行 source ／path2file/.tmux.conf 即可生效 （也可以直接将这几行放在 C-b : 的输入行去执行，每次执行一行
 
 ----------------------------------------------------------------------------------------------------
-# tmux command for use. brief introduction and quick start
+#############################################################
+# tmux command for use. brief introduction and quick start  #
+#############################################################
 创建／关闭session
     tmux    # 不推荐， 创建默认的会话，以数字命名
     tmux new -s sess_name
 
     tmux kill-session -t sess_name     # 建议在关闭前先查看回话名称
-查看(所有)session名称
-    tmux ls
+    
+    tmux ls                            # 查看(所有)session名称
 
 连接(进入)／断开(退出)session
     tmux attach -t sess_name
@@ -53,13 +55,18 @@ Tmux 所使用的快捷键前缀默认是组合键 Ctrl-b（同时按下 Ctrl �
         ctrl+b  
         
     # 常用，关于窗口(pane)
-    Ctrl + b 激活控制台后在输入“%”　　将当前面板平分为左右两块；
+    Ctrl + b 激活控制台后在输入“%”　　   将当前面板平分为左右两块；
     Ctrl + b 激活控制台后在输入“  ” ”　　将当前面板平分为上下两块；
-    Ctrl + b 激活控制台后在输入“o”　　切换窗口；
-    Ctrl + b                方向键， 切换窗口
-    Ctrl + b                 q   , 按照数字提示(输入数字)切换窗口  
-    Ctrl + b                 z      将窗口最大化和还原                        # tmux >= 1.8, 重磅推荐
+    Ctrl + b 激活控制台后在输入“o”　　   切换窗口；
+    改用C-b                 [           进入copy mode，然后就可以用PgUp/PgDn/光标来浏览历史输出了
+    Ctrl + b                方向键，    切换窗口
+    Ctrl + b                 q   ,      按照数字提示(输入数字)切换窗口  
+    Ctrl + b                 z          将窗口最大化和还原                        # tmux >= 1.8, 重磅推荐
     
     # 关于session
-    Ctrl + b 激活控制台后在输入“s”　　通过窗口切换到其他会话
-    Ctrl + b 激活控制台后在输入“d”　　脱离当前会话；这样可以暂时返回Shell界面，输入“tmux a -t 名称”，能够重新进入之前的会话；
+    Ctrl + b 激活控制台后在输入“s”　　   通过窗口切换到其他会话
+    Ctrl + b 激活控制台后在输入“d”　　   脱离当前会话；这样可以暂时返回Shell界面，输入“tmux a -t 名称”，能够重新进入之前的会话；
+
+在tmux里面，因为每个窗口(tmux window)的历史内容已经被tmux接管了，所以原来console/terminal提供的Shift+PgUp/PgDn所显示的内容并不是当前窗口的历史内容，那么应该怎么办呢?
+改用C-b [进入copy mode，然后就可以用PgUp/PgDn/光标来浏览历史输出了，按q退出。C-b PgUp也可以直接进入coy mode. 参见:How do I scroll in tmux? - Super User
+copy mode其实比较类似于vi/emacs里面一个只读buffer，可以移动光标，可以搜索，用C-SPC开始选择，选择完后用M-w拷贝(拷贝后自动退 出copy mode)，然后可以C-b ]粘贴(可在其它窗口粘贴), C-b =可以从剪贴板历史中选择。
