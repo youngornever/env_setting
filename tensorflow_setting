@@ -19,3 +19,11 @@ CUDA will enumerate the visible devices starting at zero. In the last case, devi
         config.allow_soft_placement = True
         # config.log_device_placement = True
         session = tf.Session(config=config)
+        
+        
+# 查看gpu信息
+https://blog.csdn.net/weixin_35653315/article/details/71403386
+    使用tensorflow查询机器上是否存在可用的gpu设备
+    使用tensorflow获取可用的gpu设备编号
+    tensorflow对GPU设备的编码
+
